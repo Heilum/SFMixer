@@ -20,6 +20,14 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func showMixer(_ sender: Any) {
+        
+      
+        
+        let nc = UIStoryboard(name: "SFMixerViewController", bundle: nil).instantiateInitialViewController();
+        
+        self.present(nc!, animated: true, completion: nil);
+    }
 
 }
 

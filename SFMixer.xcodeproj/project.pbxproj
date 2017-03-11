@@ -7,14 +7,35 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B0CB9791E726CA2003DC1DB /* SFCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0CB9781E726CA2003DC1DB /* SFCommon.swift */; };
+		7B2DA0001E71127200B8126C /* SFAudioBusContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D9FFF1E71127200B8126C /* SFAudioBusContainerView.swift */; };
+		7B51528E1E723F5600208B4A /* SFAudioBusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51528D1E723F5600208B4A /* SFAudioBusView.swift */; };
+		7B5152901E723FB200208B4A /* SFAudioBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51528F1E723FB200208B4A /* SFAudioBus.swift */; };
+		7B5152931E7258E200208B4A /* popover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B5152911E7258E200208B4A /* popover@2x.png */; };
+		7B5152941E7258E200208B4A /* popover@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B5152921E7258E200208B4A /* popover@3x.png */; };
 		7B8870891E6E6B640031FDA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8870881E6E6B640031FDA4 /* AppDelegate.swift */; };
 		7B88708B1E6E6B640031FDA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B88708A1E6E6B640031FDA4 /* ViewController.swift */; };
 		7B88708E1E6E6B640031FDA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B88708C1E6E6B640031FDA4 /* Main.storyboard */; };
 		7B8870901E6E6B640031FDA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B88708F1E6E6B640031FDA4 /* Assets.xcassets */; };
 		7B8870931E6E6B640031FDA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B8870911E6E6B640031FDA4 /* LaunchScreen.storyboard */; };
+		7B88709D1E6E6DDE0031FDA4 /* SFMixerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B88709B1E6E6DDE0031FDA4 /* SFMixerViewController.swift */; };
+		7B8870A01E6E72A10031FDA4 /* SFMixerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B88709F1E6E72A10031FDA4 /* SFMixerViewController.storyboard */; };
+		7B8870A51E6E7A390031FDA4 /* playBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B8870A11E6E7A390031FDA4 /* playBtn@2x.png */; };
+		7B8870A61E6E7A390031FDA4 /* playBtn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B8870A21E6E7A390031FDA4 /* playBtn@3x.png */; };
+		7B8870A71E6E7A390031FDA4 /* plus@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B8870A31E6E7A390031FDA4 /* plus@2x.png */; };
+		7B8870A81E6E7A390031FDA4 /* plus@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B8870A41E6E7A390031FDA4 /* plus@3x.png */; };
+		7B8870AB1E6E7EBB0031FDA4 /* positionFlag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B8870A91E6E7EBB0031FDA4 /* positionFlag@2x.png */; };
+		7B8870AC1E6E7EBB0031FDA4 /* positionFlag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B8870AA1E6E7EBB0031FDA4 /* positionFlag@3x.png */; };
+		7B8870AE1E6E8A4E0031FDA4 /* SFPositionFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8870AD1E6E8A4E0031FDA4 /* SFPositionFlagView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B0CB9781E726CA2003DC1DB /* SFCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFCommon.swift; sourceTree = "<group>"; };
+		7B2D9FFF1E71127200B8126C /* SFAudioBusContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFAudioBusContainerView.swift; sourceTree = "<group>"; };
+		7B51528D1E723F5600208B4A /* SFAudioBusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFAudioBusView.swift; sourceTree = "<group>"; };
+		7B51528F1E723FB200208B4A /* SFAudioBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFAudioBus.swift; sourceTree = "<group>"; };
+		7B5152911E7258E200208B4A /* popover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover@2x.png"; sourceTree = "<group>"; };
+		7B5152921E7258E200208B4A /* popover@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover@3x.png"; sourceTree = "<group>"; };
 		7B8870851E6E6B640031FDA4 /* SFMixer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFMixer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8870881E6E6B640031FDA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B88708A1E6E6B640031FDA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +43,15 @@
 		7B88708F1E6E6B640031FDA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B8870921E6E6B640031FDA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B8870941E6E6B640031FDA4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B88709B1E6E6DDE0031FDA4 /* SFMixerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFMixerViewController.swift; sourceTree = "<group>"; };
+		7B88709F1E6E72A10031FDA4 /* SFMixerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SFMixerViewController.storyboard; sourceTree = "<group>"; };
+		7B8870A11E6E7A390031FDA4 /* playBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playBtn@2x.png"; sourceTree = "<group>"; };
+		7B8870A21E6E7A390031FDA4 /* playBtn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "playBtn@3x.png"; sourceTree = "<group>"; };
+		7B8870A31E6E7A390031FDA4 /* plus@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@2x.png"; sourceTree = "<group>"; };
+		7B8870A41E6E7A390031FDA4 /* plus@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus@3x.png"; sourceTree = "<group>"; };
+		7B8870A91E6E7EBB0031FDA4 /* positionFlag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "positionFlag@2x.png"; sourceTree = "<group>"; };
+		7B8870AA1E6E7EBB0031FDA4 /* positionFlag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "positionFlag@3x.png"; sourceTree = "<group>"; };
+		7B8870AD1E6E8A4E0031FDA4 /* SFPositionFlagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFPositionFlagView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,12 +84,35 @@
 		7B8870871E6E6B640031FDA4 /* SFMixer */ = {
 			isa = PBXGroup;
 			children = (
+				7B88709A1E6E6DA60031FDA4 /* SFMixer */,
 				7B8870881E6E6B640031FDA4 /* AppDelegate.swift */,
 				7B88708A1E6E6B640031FDA4 /* ViewController.swift */,
 				7B88708C1E6E6B640031FDA4 /* Main.storyboard */,
 				7B88708F1E6E6B640031FDA4 /* Assets.xcassets */,
 				7B8870911E6E6B640031FDA4 /* LaunchScreen.storyboard */,
 				7B8870941E6E6B640031FDA4 /* Info.plist */,
+			);
+			path = SFMixer;
+			sourceTree = "<group>";
+		};
+		7B88709A1E6E6DA60031FDA4 /* SFMixer */ = {
+			isa = PBXGroup;
+			children = (
+				7B8870A91E6E7EBB0031FDA4 /* positionFlag@2x.png */,
+				7B5152911E7258E200208B4A /* popover@2x.png */,
+				7B5152921E7258E200208B4A /* popover@3x.png */,
+				7B8870AA1E6E7EBB0031FDA4 /* positionFlag@3x.png */,
+				7B8870A11E6E7A390031FDA4 /* playBtn@2x.png */,
+				7B8870A21E6E7A390031FDA4 /* playBtn@3x.png */,
+				7B8870A31E6E7A390031FDA4 /* plus@2x.png */,
+				7B8870A41E6E7A390031FDA4 /* plus@3x.png */,
+				7B88709B1E6E6DDE0031FDA4 /* SFMixerViewController.swift */,
+				7B88709F1E6E72A10031FDA4 /* SFMixerViewController.storyboard */,
+				7B8870AD1E6E8A4E0031FDA4 /* SFPositionFlagView.swift */,
+				7B2D9FFF1E71127200B8126C /* SFAudioBusContainerView.swift */,
+				7B51528D1E723F5600208B4A /* SFAudioBusView.swift */,
+				7B51528F1E723FB200208B4A /* SFAudioBus.swift */,
+				7B0CB9781E726CA2003DC1DB /* SFCommon.swift */,
 			);
 			path = SFMixer;
 			sourceTree = "<group>";
@@ -124,9 +177,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B8870A01E6E72A10031FDA4 /* SFMixerViewController.storyboard in Resources */,
+				7B8870A51E6E7A390031FDA4 /* playBtn@2x.png in Resources */,
 				7B8870931E6E6B640031FDA4 /* LaunchScreen.storyboard in Resources */,
+				7B8870AB1E6E7EBB0031FDA4 /* positionFlag@2x.png in Resources */,
+				7B8870AC1E6E7EBB0031FDA4 /* positionFlag@3x.png in Resources */,
+				7B8870A71E6E7A390031FDA4 /* plus@2x.png in Resources */,
 				7B8870901E6E6B640031FDA4 /* Assets.xcassets in Resources */,
+				7B8870A81E6E7A390031FDA4 /* plus@3x.png in Resources */,
+				7B5152931E7258E200208B4A /* popover@2x.png in Resources */,
+				7B8870A61E6E7A390031FDA4 /* playBtn@3x.png in Resources */,
 				7B88708E1E6E6B640031FDA4 /* Main.storyboard in Resources */,
+				7B5152941E7258E200208B4A /* popover@3x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,8 +199,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B2DA0001E71127200B8126C /* SFAudioBusContainerView.swift in Sources */,
+				7B88709D1E6E6DDE0031FDA4 /* SFMixerViewController.swift in Sources */,
 				7B88708B1E6E6B640031FDA4 /* ViewController.swift in Sources */,
+				7B0CB9791E726CA2003DC1DB /* SFCommon.swift in Sources */,
+				7B5152901E723FB200208B4A /* SFAudioBus.swift in Sources */,
+				7B8870AE1E6E8A4E0031FDA4 /* SFPositionFlagView.swift in Sources */,
 				7B8870891E6E6B640031FDA4 /* AppDelegate.swift in Sources */,
+				7B51528E1E723F5600208B4A /* SFAudioBusView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +368,7 @@
 				7B8870991E6E6B640031FDA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
