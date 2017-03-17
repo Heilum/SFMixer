@@ -8,37 +8,49 @@
 
 import UIKit
 import CoreGraphics
+import AVFoundation
 
 
-class SFAudioBusContainerClipMaskView:UIView{
+
+private class SFAudioBusContainerClipMaskLayer:CALayer{
     
-    @IBInspectable  private var clipAreaColor:UIColor = UIColor.init(red: 249.0/255, green: 214.0/255, blue: 24.0/255, alpha: 1);
     
-    var clipMargins:CGPoint = CGPoint(x:0,y:0){
-        didSet{
-            self.setNeedsDisplay();
+    var clipAreaColor:UIColor!;
+    
+    @NSManaged var clipMargins:CGPoint;
+    
+    class override func needsDisplay(forKey key:String) -> Bool {
+        if key == "clipMargins" {
+            return true
+        } else {
+            return super.needsDisplay(forKey: key)
         }
     }
-
     
-    override func draw(_ rect: CGRect) {
-        let context = UIGraphicsGetCurrentContext()
-        context?.addRect(CGRect(x: 0, y: 0, width: self.clipMargins.x, height: self.bounds.height))
-        context?.addRect(CGRect(x: self.bounds.width - clipMargins.y, y: 0, width: self.clipMargins.y, height: self.bounds.height))
-        context?.setFillColor((clipAreaColor.withAlphaComponent(0.4).cgColor));
-        context?.fillPath();
+    
+    
+    override func draw(in ctx: CGContext) {
+        let context = ctx
+        context.addRect(CGRect(x: 0, y: 0, width: clipMargins.x, height: self.bounds.height))
+        context.addRect(CGRect(x: self.bounds.width - clipMargins.y, y: 0, width: clipMargins.y, height: self.bounds.height))
+        context.setFillColor((clipAreaColor.withAlphaComponent(0.4).cgColor));
+        context.fillPath();
         
-        context?.addLines(between: [CGPoint(x:self.clipMargins.x,y: 0),CGPoint(x:self.clipMargins.x,y:self.bounds.height)]);
-        context?.addLines(between: [CGPoint(x:self.bounds.width - clipMargins.y,y: 0),CGPoint(x:self.bounds.width - clipMargins.y,y:self.bounds.height)]);
-        context?.setStrokeColor(clipAreaColor.cgColor);
-        context?.strokePath();
+        context.addLines(between: [CGPoint(x:clipMargins.x,y: 0),CGPoint(x:clipMargins.x,y:self.bounds.height)]);
+        context.addLines(between: [CGPoint(x:self.bounds.width - clipMargins.y,y: 0),CGPoint(x:self.bounds.width - clipMargins.y,y:self.bounds.height)]);
+        context.setStrokeColor(clipAreaColor.cgColor);
+        context.strokePath();
     }
     
+    
+    
+  
 }
 
 
-
 class SFAudioBusContainerView: UIView {
+    
+    
     
     /*
      // Only override draw() if you perform custom drawing.
@@ -54,57 +66,42 @@ class SFAudioBusContainerView: UIView {
     @IBInspectable  private var tickFont:UIFont = UIFont.systemFont(ofSize: 10);
     @IBInspectable  private var tickMarkAreaHeight = CGFloat(25);
     @IBInspectable  private var maxAudioRow:Int = 5;
-   
-    
-    private var clipMaskView:SFAudioBusContainerClipMaskView!
+    @IBInspectable  fileprivate var clipAreaColor:UIColor = UIColor.init(red: 0, green: 122.0/255, blue: 1, alpha: 1);
     
     
+    
+    private weak var clipMaskLayer:SFAudioBusContainerClipMaskLayer!
+    
+    private var avPlayer:AVPlayer?
+    
+    
+    private var playingBeginTime:TimeInterval?
     
     
     
     override func willMove(toSuperview newSuperview: UIView?) {
         if newSuperview != nil {
-            if self.clipMaskView == nil {
-                let maskView = SFAudioBusContainerClipMaskView(frame: self.bounds);
-                maskView.autoresizingMask = [UIViewAutoresizing.flexibleHeight,UIViewAutoresizing.flexibleWidth];
-                maskView.backgroundColor = UIColor.clear;
-                maskView.contentMode = UIViewContentMode.redraw;
-                self.addSubview(maskView);
-                self.clipMaskView = maskView;
-            }
             
             
-            //add gesturs
-            let g = UILongPressGestureRecognizer(target: self, action: #selector(onLongPress(g:)))
-            self.addGestureRecognizer(g);
+            
+            
+            
+            //add mask layer
+            let maskLayer = SFAudioBusContainerClipMaskLayer();
+            
+            maskLayer.needsDisplayOnBoundsChange = true;
+            maskLayer.zPosition = CGFloat(MAXFLOAT);
+            maskLayer.clipAreaColor = self.clipAreaColor;
+            maskLayer.clipMargins = CGPoint(x: 0, y: 0);
+            
+            self.layer.addSublayer(maskLayer);
+            self.clipMaskLayer = maskLayer;
+        }else{
+            stopPreview()
         }
     }
     
     
-    dynamic private func onLongPress(g:UIGestureRecognizer){
-        if g.state == .began{
-            var targetView:SFAudioBusView? = nil;
-            for v in self.subviews{
-                if let audioBusView = v as? SFAudioBusView {
-                    let p = g.location(in: audioBusView);
-                    if audioBusView.bounds.contains(p){
-                        targetView = audioBusView;
-                        break;
-                    }
-                }
-            }
-            
-            if targetView != nil {
-                let ac = UIAlertController(title: "Warnning" ,message: "Are you sure to reomve [\(targetView!.audioBus.name)]", preferredStyle: UIAlertControllerStyle.alert);
-                
-                ac.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil));
-                ac.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { [weak self] (_) in
-                    self?.removeAudioBus(audioBus: targetView!.audioBus);
-                }));
-                self.parentVC?.present(ac, animated: true, completion: nil);
-            }
-        }
-    }
     
     
     private var audioRowHeight:CGFloat{
@@ -120,10 +117,11 @@ class SFAudioBusContainerView: UIView {
         // Drawing code
         drawRule();
         drawGrid()
-       
+        
     }
     
-  
+    
+    
     
     
     
@@ -228,8 +226,11 @@ class SFAudioBusContainerView: UIView {
             }
         }
         
+        self.clipMaskLayer?.frame = self.bounds;
         
-       
+        
+        
+        
     }
     
     var numOfBuses:Int{
@@ -240,7 +241,7 @@ class SFAudioBusContainerView: UIView {
                 return sum;
             }
         }
-
+        
         return buses;
     }
     
@@ -252,57 +253,288 @@ class SFAudioBusContainerView: UIView {
     
     var onNumOfBusesChanged:((Void)->Void)?
     
-    weak var parentVC:UIViewController?
+    private var previewDidFinish:((Void)->Void)?
+    
+    weak var parentVC:SFMixerViewController?
     
     var clipMargins:CGPoint{
-        get {
-            return self.clipMaskView.clipMargins;
+        set{
+            // self.clipMaskLayer is an instance of SFAudioBusContainerClipMaskLayer
+            // change the property animately
+            self.clipMaskLayer.clipMargins = newValue;
         }
-        set(newValue){
-            self.clipMaskView.clipMargins = newValue;
+        get{
+            let p = self.clipMaskLayer.clipMargins;
+            print(p);
+            return p;
         }
     }
     
-    var clippedDuration:Int{
-        let duration =  ( CGFloat(self.maxSeconds) * (self.bounds.width - self.clipMargins.x - self.clipMargins.y) / self.bounds.width ).rounded();
-        return Int(duration);
-    }
+    
+  
     
     var canAddAudioBus:Bool{
-    
-        
         return self.numOfBuses < self.maxAudioRow;
     }
     
-    
+    func clippedDurationOfNewMargin(_ newMargin:CGPoint) -> Int{
+        let duration =  ( CGFloat(self.maxSeconds) * (self.bounds.width - newMargin.x - newMargin.y) / self.bounds.width ).rounded();
+        return Int(duration);
+    }
     
     
     func addAudioBus(audioBus:SFAudioBus) -> Void {
         if self.canAddAudioBus{
-            let busView = SFAudioBusView(audioBus: audioBus);
+            let busView = SFAudioBusView(audioBus: audioBus, frame: CGRect(x:0,y:0,width:self.bounds.width,height:audioRowHeight),maxDuration:CGFloat(self.maxSeconds))
             self.addSubview(busView);
             onNumOfBusesChanged?();
         }
-        self.bringSubview(toFront: self.clipMaskView);
+        
     }
     
-    func removeAudioBus(audioBus:SFAudioBus){
-        let targetBusView = self.subviews.filter { (v) -> Bool in
-            if let busView = v as? SFAudioBusView{
-                return busView.audioBus == audioBus;
-            }
-            return false;
-            }.first ;
+    
+    func prepareRemoveAudioBusView(targetView:SFAudioBusView){
+        let ac = UIAlertController(title: "Warnning" ,message: "Are you sure to reomve [\(targetView.audioBus.name)]", preferredStyle: UIAlertControllerStyle.alert);
         
-        if targetBusView != nil {
-            targetBusView?.removeFromSuperview();
-            
-            self.bringSubview(toFront: self.clipMaskView);
-            
-            onNumOfBusesChanged?();
+        ac.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil));
+        ac.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { [weak self] (_) in
+            targetView.removeFromSuperview();
+            self?.onNumOfBusesChanged?();
+        }));
+        self.parentVC?.present(ac, animated: true, completion: nil);
+    }
+    
+    
+    private func addAudioBus(_ audioBus:SFAudioBus,composition:AVMutableComposition) -> AVAudioMixInputParameters?{
+        let asset =  AVURLAsset(url: audioBus.url);
+        let track = composition.addMutableTrack(withMediaType: AVMediaTypeAudio, preferredTrackID: kCMPersistentTrackID_Invalid);
+        
+        
+        
+        let startTime = CMTime(seconds: 0, preferredTimescale: 1);
+        let endTime = CMTime(seconds: audioBus.accurateDuration, preferredTimescale: 1);
+        
+        let trackMixParameters = AVMutableAudioMixInputParameters(track: track);
+        trackMixParameters.setVolume(audioBus.volumn, at: startTime);
+        
+        
+        let sourceTrack = asset.tracks(withMediaType: AVMediaTypeAudio).first!
+        
+        var timeRange = CMTimeRange(start: startTime, duration: endTime);
+        var delayTime = CMTime(seconds: audioBus.delayTime, preferredTimescale: 1);
+        
+        if audioBus.delayTime < 0{
+            timeRange.start = CMTime(seconds: -audioBus.delayTime, preferredTimescale: 1);
+            delayTime = startTime;
         }
         
-       
+        
+        
+        do {
+            try track.insertTimeRange(timeRange, of: sourceTrack, at:delayTime);
+        }catch{
+            print(error);
+            return nil;
+        }
+        
+        
+        
+        return trackMixParameters;
+        
+    }
+    
+    private func createAudioMixerAndComposition() -> (AVAudioMix,AVComposition)?{
+        let composition = AVMutableComposition();
+        var inputParams = [AVAudioMixInputParameters]();
+        for v in self.subviews{
+            if let busView = v as? SFAudioBusView{
+                
+                if busView.audioBus.mute == false{
+                    
+                    if let param = self.addAudioBus(busView.audioBus, composition: composition){
+                        inputParams.append(param);
+                    }else{
+                        return nil;
+                    }
+                    
+                }
+                
+                
+            }
+        }
+        
+        
+        let audioMixer = AVMutableAudioMix();
+        audioMixer.inputParameters = inputParams;
+        
+        
+        return (audioMixer,composition);
+        
+    }
+    
+    func saveOutput(completion:@escaping (String?) -> Void){
+        
+        if let (audioMixer,composition)  = self.createAudioMixerAndComposition() {
+            
+            let exporter = AVAssetExportSession(asset: composition, presetName: AVAssetExportPresetAppleM4A)!
+            exporter.audioMix = audioMixer;
+            exporter.outputFileType = "com.apple.m4a-audio";
+            
+            let fileName = "SFMixer.m4a";
+            let finalPath = (NSTemporaryDirectory() as NSString).appendingPathComponent(fileName)
+            
+            
+            
+            print(finalPath);
+            
+            let outputURL = URL(fileURLWithPath: finalPath);
+            
+            try? FileManager.default.removeItem(at: outputURL);
+            exporter.outputURL = outputURL;
+            
+            let range = self.clipedMixRange;
+            exporter.timeRange = CMTimeRange(start: CMTime(seconds: range.0, preferredTimescale: 1), duration: CMTime(seconds: range.1, preferredTimescale: 1))
+            
+            exporter.exportAsynchronously {
+                
+                let status = exporter.status;
+                if status == .completed{
+                    DispatchQueue.main.async {
+                        completion(finalPath);
+                    }
+                }else if(status == .failed){
+                    DispatchQueue.main.async {
+                        completion(nil);
+                    }
+                }
+            };
+        }else{
+            completion(nil);
+        }
+        
+    }
+    
+    
+    
+    
+    var clipedMixRange:(TimeInterval,TimeInterval){
+        let leftClip = TimeInterval(self.maxSeconds) * TimeInterval( self.clipMargins.x / self.bounds.width);
+        let rightClip = TimeInterval(self.maxSeconds) * TimeInterval( self.clipMargins.y / self.bounds.width);
+        let duration = TimeInterval(self.maxSeconds) - leftClip - rightClip;
+        return(leftClip,duration);
+        //return Range<TimeInterval>(
+    }
+    
+    var distanceBetweenClipLine:CGFloat{
+        let distance = self.bounds.width - self.clipMargins.x - self.clipMargins.y;
+        return distance;
+    }
+    
+    
+    
+    
+    var trimedClipMargins:CGPoint{
+        //self.clipMargins
+        var minRightMargin = CGFloat(self.bounds.width);
+        var minLeftMargin = CGFloat(self.bounds.width);
+        for v in self.subviews{
+            if let busView = v as? SFAudioBusView{
+                
+                if busView.audioBus.mute == false{
+                    
+                    let rightMargin = busView.rightMargin;
+                    if rightMargin < minRightMargin {
+                        minRightMargin = rightMargin;
+                    }
+                    
+                    let leftMargin = busView.leftMargin;
+                    if leftMargin < minLeftMargin{
+                        minLeftMargin = leftMargin;
+                    }
+                }
+                
+                
+            }
+        }
+        //minRightMargin -= HAIRLINE_WIDTH;
+        minRightMargin = max(0, minRightMargin);
+        minRightMargin = min(self.bounds.width, minRightMargin);
+        
+        //minLeftMargin -= HAIRLINE_WIDTH;
+        minLeftMargin = max(0,minLeftMargin);
+        minLeftMargin = min(self.bounds.width,minLeftMargin);
+        
+        
+        
+        
+        
+        let newClipMargin = CGPoint(x:minLeftMargin,y:minRightMargin);
+        return newClipMargin;
+    }
+    
+    func stopPreview(){
+        self.isUserInteractionEnabled = true;
+        NSObject.cancelPreviousPerformRequests(withTarget: self);
+        avPlayer?.pause();
+        avPlayer = nil;
+        self.previewDidFinish?();
+        
+    }
+    
+    func pausePreview(){
+        avPlayer?.pause();
+        NSObject.cancelPreviousPerformRequests(withTarget: self);
+    }
+
+    
+    
+    func resumePreviewAtPosition(seekTime:TimeInterval){
+        let startTime = self.clipedMixRange.0 + seekTime;
+        self.avPlayer?.seek(to: CMTime(seconds: startTime, preferredTimescale: 1));
+        self.playingBeginTime = Date.timeIntervalSinceReferenceDate - seekTime;
+        self.avPlayer?.play();
+        self.perform(#selector(self.stopPreview), with: nil, afterDelay: self.clipedMixRange.1 - seekTime);
+    }
+    
+    
+    
+    var passedTimeSincePlaying:TimeInterval?{
+        if let beginTime = self.playingBeginTime {
+            return Date.timeIntervalSinceReferenceDate - beginTime;
+        }
+        return nil;
+    }
+    
+    func previewMixedAudio(completion: @escaping (Void)->Void){
+        
+        self.previewDidFinish = completion;
+        
+        if let (audioMixer,composition)  = self.createAudioMixerAndComposition() {
+            
+            let playItem = AVPlayerItem(asset: composition);
+            playItem.audioMix = audioMixer;
+            let avPlayer = AVPlayer(playerItem: playItem);
+            
+            self.avPlayer = avPlayer;
+            
+            avPlayer.play();
+          
+            
+            let range = self.clipedMixRange;
+            avPlayer.seek(to: CMTime(seconds: range.0, preferredTimescale: 1));
+            self.playingBeginTime = Date.timeIntervalSinceReferenceDate;
+            
+            self.perform(#selector(self.stopPreview), with: nil, afterDelay: range.1);
+            
+            self.isUserInteractionEnabled = false;
+            
+            
+        }
+        
+        
+        
+        
+        
     }
     
     

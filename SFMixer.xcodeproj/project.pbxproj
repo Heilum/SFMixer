@@ -7,12 +7,20 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7B0C3B051E7562460016837F /* SFAudioWaveformHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0C3B041E7562460016837F /* SFAudioWaveformHelper.swift */; };
+		7B0C3B071E7648020016837F /* PanDirectionGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0C3B061E7648020016837F /* PanDirectionGestureRecognizer.swift */; };
 		7B0CB9791E726CA2003DC1DB /* SFCommon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B0CB9781E726CA2003DC1DB /* SFCommon.swift */; };
+		7B2886A01E7B9018006E6C5F /* audio_3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7B28869F1E7B9018006E6C5F /* audio_3.mp3 */; };
+		7B2886A21E7B9041006E6C5F /* audio_4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7B2886A11E7B9041006E6C5F /* audio_4.mp3 */; };
 		7B2DA0001E71127200B8126C /* SFAudioBusContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B2D9FFF1E71127200B8126C /* SFAudioBusContainerView.swift */; };
 		7B51528E1E723F5600208B4A /* SFAudioBusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51528D1E723F5600208B4A /* SFAudioBusView.swift */; };
 		7B5152901E723FB200208B4A /* SFAudioBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B51528F1E723FB200208B4A /* SFAudioBus.swift */; };
 		7B5152931E7258E200208B4A /* popover@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B5152911E7258E200208B4A /* popover@2x.png */; };
 		7B5152941E7258E200208B4A /* popover@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B5152921E7258E200208B4A /* popover@3x.png */; };
+		7B77CFC01E78F783005B69D3 /* dashedFlag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B77CFBE1E78F783005B69D3 /* dashedFlag@2x.png */; };
+		7B77CFC11E78F783005B69D3 /* dashedFlag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B77CFBF1E78F783005B69D3 /* dashedFlag@3x.png */; };
+		7B77CFC41E7A66B4005B69D3 /* stopBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B77CFC21E7A66B4005B69D3 /* stopBtn@2x.png */; };
+		7B77CFC51E7A66B4005B69D3 /* stopBtn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B77CFC31E7A66B4005B69D3 /* stopBtn@3x.png */; };
 		7B8870891E6E6B640031FDA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8870881E6E6B640031FDA4 /* AppDelegate.swift */; };
 		7B88708B1E6E6B640031FDA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B88708A1E6E6B640031FDA4 /* ViewController.swift */; };
 		7B88708E1E6E6B640031FDA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B88708C1E6E6B640031FDA4 /* Main.storyboard */; };
@@ -27,15 +35,26 @@
 		7B8870AB1E6E7EBB0031FDA4 /* positionFlag@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B8870A91E6E7EBB0031FDA4 /* positionFlag@2x.png */; };
 		7B8870AC1E6E7EBB0031FDA4 /* positionFlag@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7B8870AA1E6E7EBB0031FDA4 /* positionFlag@3x.png */; };
 		7B8870AE1E6E8A4E0031FDA4 /* SFPositionFlagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B8870AD1E6E8A4E0031FDA4 /* SFPositionFlagView.swift */; };
+		7B89B0761E744F7600F6DFFB /* audio_2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7B89B0751E744F7600F6DFFB /* audio_2.mp3 */; };
+		7B89B0A41E754CCE00F6DFFB /* audio_0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7B89B0A31E754CCE00F6DFFB /* audio_0.mp3 */; };
+		7B89B0A61E754D1100F6DFFB /* audio_1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7B89B0A51E754D1100F6DFFB /* audio_1.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7B0C3B041E7562460016837F /* SFAudioWaveformHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFAudioWaveformHelper.swift; sourceTree = "<group>"; };
+		7B0C3B061E7648020016837F /* PanDirectionGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PanDirectionGestureRecognizer.swift; sourceTree = "<group>"; };
 		7B0CB9781E726CA2003DC1DB /* SFCommon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFCommon.swift; sourceTree = "<group>"; };
+		7B28869F1E7B9018006E6C5F /* audio_3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio_3.mp3; sourceTree = "<group>"; };
+		7B2886A11E7B9041006E6C5F /* audio_4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio_4.mp3; sourceTree = "<group>"; };
 		7B2D9FFF1E71127200B8126C /* SFAudioBusContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFAudioBusContainerView.swift; sourceTree = "<group>"; };
 		7B51528D1E723F5600208B4A /* SFAudioBusView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFAudioBusView.swift; sourceTree = "<group>"; };
 		7B51528F1E723FB200208B4A /* SFAudioBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFAudioBus.swift; sourceTree = "<group>"; };
 		7B5152911E7258E200208B4A /* popover@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover@2x.png"; sourceTree = "<group>"; };
 		7B5152921E7258E200208B4A /* popover@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "popover@3x.png"; sourceTree = "<group>"; };
+		7B77CFBE1E78F783005B69D3 /* dashedFlag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashedFlag@2x.png"; sourceTree = "<group>"; };
+		7B77CFBF1E78F783005B69D3 /* dashedFlag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dashedFlag@3x.png"; sourceTree = "<group>"; };
+		7B77CFC21E7A66B4005B69D3 /* stopBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stopBtn@2x.png"; sourceTree = "<group>"; };
+		7B77CFC31E7A66B4005B69D3 /* stopBtn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "stopBtn@3x.png"; sourceTree = "<group>"; };
 		7B8870851E6E6B640031FDA4 /* SFMixer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SFMixer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7B8870881E6E6B640031FDA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7B88708A1E6E6B640031FDA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +71,9 @@
 		7B8870A91E6E7EBB0031FDA4 /* positionFlag@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "positionFlag@2x.png"; sourceTree = "<group>"; };
 		7B8870AA1E6E7EBB0031FDA4 /* positionFlag@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "positionFlag@3x.png"; sourceTree = "<group>"; };
 		7B8870AD1E6E8A4E0031FDA4 /* SFPositionFlagView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SFPositionFlagView.swift; sourceTree = "<group>"; };
+		7B89B0751E744F7600F6DFFB /* audio_2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = audio_2.mp3; path = SFMixer/audio_2.mp3; sourceTree = "<group>"; };
+		7B89B0A31E754CCE00F6DFFB /* audio_0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio_0.mp3; sourceTree = "<group>"; };
+		7B89B0A51E754D1100F6DFFB /* audio_1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = audio_1.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +106,15 @@
 		7B8870871E6E6B640031FDA4 /* SFMixer */ = {
 			isa = PBXGroup;
 			children = (
+				7B89B04E1E73AA4400F6DFFB /* ThirdParty */,
 				7B88709A1E6E6DA60031FDA4 /* SFMixer */,
 				7B8870881E6E6B640031FDA4 /* AppDelegate.swift */,
 				7B88708A1E6E6B640031FDA4 /* ViewController.swift */,
+				7B2886A11E7B9041006E6C5F /* audio_4.mp3 */,
+				7B89B0A31E754CCE00F6DFFB /* audio_0.mp3 */,
+				7B28869F1E7B9018006E6C5F /* audio_3.mp3 */,
+				7B89B0A51E754D1100F6DFFB /* audio_1.mp3 */,
+				7B89B0751E744F7600F6DFFB /* audio_2.mp3 */,
 				7B88708C1E6E6B640031FDA4 /* Main.storyboard */,
 				7B88708F1E6E6B640031FDA4 /* Assets.xcassets */,
 				7B8870911E6E6B640031FDA4 /* LaunchScreen.storyboard */,
@@ -98,10 +126,14 @@
 		7B88709A1E6E6DA60031FDA4 /* SFMixer */ = {
 			isa = PBXGroup;
 			children = (
+				7B77CFBE1E78F783005B69D3 /* dashedFlag@2x.png */,
+				7B77CFC21E7A66B4005B69D3 /* stopBtn@2x.png */,
+				7B77CFC31E7A66B4005B69D3 /* stopBtn@3x.png */,
+				7B77CFBF1E78F783005B69D3 /* dashedFlag@3x.png */,
 				7B8870A91E6E7EBB0031FDA4 /* positionFlag@2x.png */,
+				7B8870AA1E6E7EBB0031FDA4 /* positionFlag@3x.png */,
 				7B5152911E7258E200208B4A /* popover@2x.png */,
 				7B5152921E7258E200208B4A /* popover@3x.png */,
-				7B8870AA1E6E7EBB0031FDA4 /* positionFlag@3x.png */,
 				7B8870A11E6E7A390031FDA4 /* playBtn@2x.png */,
 				7B8870A21E6E7A390031FDA4 /* playBtn@3x.png */,
 				7B8870A31E6E7A390031FDA4 /* plus@2x.png */,
@@ -113,8 +145,17 @@
 				7B51528D1E723F5600208B4A /* SFAudioBusView.swift */,
 				7B51528F1E723FB200208B4A /* SFAudioBus.swift */,
 				7B0CB9781E726CA2003DC1DB /* SFCommon.swift */,
+				7B0C3B061E7648020016837F /* PanDirectionGestureRecognizer.swift */,
 			);
 			path = SFMixer;
+			sourceTree = "<group>";
+		};
+		7B89B04E1E73AA4400F6DFFB /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				7B0C3B041E7562460016837F /* SFAudioWaveformHelper.swift */,
+			);
+			path = ThirdParty;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +220,8 @@
 			files = (
 				7B8870A01E6E72A10031FDA4 /* SFMixerViewController.storyboard in Resources */,
 				7B8870A51E6E7A390031FDA4 /* playBtn@2x.png in Resources */,
+				7B89B0761E744F7600F6DFFB /* audio_2.mp3 in Resources */,
+				7B77CFC01E78F783005B69D3 /* dashedFlag@2x.png in Resources */,
 				7B8870931E6E6B640031FDA4 /* LaunchScreen.storyboard in Resources */,
 				7B8870AB1E6E7EBB0031FDA4 /* positionFlag@2x.png in Resources */,
 				7B8870AC1E6E7EBB0031FDA4 /* positionFlag@3x.png in Resources */,
@@ -187,6 +230,13 @@
 				7B8870A81E6E7A390031FDA4 /* plus@3x.png in Resources */,
 				7B5152931E7258E200208B4A /* popover@2x.png in Resources */,
 				7B8870A61E6E7A390031FDA4 /* playBtn@3x.png in Resources */,
+				7B89B0A41E754CCE00F6DFFB /* audio_0.mp3 in Resources */,
+				7B89B0A61E754D1100F6DFFB /* audio_1.mp3 in Resources */,
+				7B77CFC11E78F783005B69D3 /* dashedFlag@3x.png in Resources */,
+				7B2886A21E7B9041006E6C5F /* audio_4.mp3 in Resources */,
+				7B2886A01E7B9018006E6C5F /* audio_3.mp3 in Resources */,
+				7B77CFC41E7A66B4005B69D3 /* stopBtn@2x.png in Resources */,
+				7B77CFC51E7A66B4005B69D3 /* stopBtn@3x.png in Resources */,
 				7B88708E1E6E6B640031FDA4 /* Main.storyboard in Resources */,
 				7B5152941E7258E200208B4A /* popover@3x.png in Resources */,
 			);
@@ -202,9 +252,11 @@
 				7B2DA0001E71127200B8126C /* SFAudioBusContainerView.swift in Sources */,
 				7B88709D1E6E6DDE0031FDA4 /* SFMixerViewController.swift in Sources */,
 				7B88708B1E6E6B640031FDA4 /* ViewController.swift in Sources */,
+				7B0C3B051E7562460016837F /* SFAudioWaveformHelper.swift in Sources */,
 				7B0CB9791E726CA2003DC1DB /* SFCommon.swift in Sources */,
 				7B5152901E723FB200208B4A /* SFAudioBus.swift in Sources */,
 				7B8870AE1E6E8A4E0031FDA4 /* SFPositionFlagView.swift in Sources */,
+				7B0C3B071E7648020016837F /* PanDirectionGestureRecognizer.swift in Sources */,
 				7B8870891E6E6B640031FDA4 /* AppDelegate.swift in Sources */,
 				7B51528E1E723F5600208B4A /* SFAudioBusView.swift in Sources */,
 			);
@@ -328,7 +380,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZP39L9XLVC;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SFMixer/ThirdParty",
+				);
 				INFOPLIST_FILE = SFMixer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swordfish.ios.SFMixer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -341,7 +398,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = ZP39L9XLVC;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/SFMixer/ThirdParty",
+				);
 				INFOPLIST_FILE = SFMixer/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.swordfish.ios.SFMixer;
 				PRODUCT_NAME = "$(TARGET_NAME)";

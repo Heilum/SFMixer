@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -49,22 +48,26 @@
                                     <action selector="onAddAudio:" destination="APu-sX-B1U" eventType="touchUpInside" id="nyd-50-jaW"/>
                                 </connections>
                             </button>
-                            <view contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="phi-sk-r1h" customClass="SFAudioBusContainerView" customModule="SFMixer" customModuleProvider="target">
-                                <rect key="frame" x="29" y="144" width="317" height="463"/>
+                            <view clipsSubviews="YES" contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="phi-sk-r1h" customClass="SFAudioBusContainerView" customModule="SFMixer" customModuleProvider="target">
+                                <rect key="frame" x="29" y="144" width="317" height="451"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DT-BN-wg7">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0DT-BN-wg7">
                                 <rect key="frame" x="320" y="79" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="VDF-sb-Nvx"/>
                                     <constraint firstAttribute="width" constant="35" id="ZDg-Zi-jxr"/>
                                 </constraints>
                                 <state key="normal" image="playBtn.png"/>
+                                <state key="selected" image="stopBtn.png"/>
+                                <connections>
+                                    <action selector="onPreview:" destination="APu-sX-B1U" eventType="touchUpInside" id="HlZ-gr-1OB"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9T1-Nx-c5l" customClass="SFPositionFlagView" customModule="SFMixer" customModuleProvider="target">
-                                <rect key="frame" x="29" y="607" width="30" height="35"/>
+                                <rect key="frame" x="29" y="595" width="30" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.0" green="0.50199997429999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="4B7-VX-pZ4"/>
@@ -75,9 +78,9 @@
                                 </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S5u-N7-S4K" customClass="SFPositionFlagView" customModule="SFMixer" customModuleProvider="target">
-                                <rect key="frame" x="316" y="607" width="30" height="35"/>
+                                <rect key="frame" x="316" y="595" width="30" height="35"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="tintColor" red="0.74117647060000003" green="0.031372549020000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="gfK-dq-SSJ"/>
@@ -105,8 +108,8 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzy-mQ-fdx">
-                                <rect key="frame" x="159" y="80" width="57.5" height="33.5"/>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzy-mQ-fdx">
+                                <rect key="frame" x="158.5" y="80" width="58" height="34"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="highlightedColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -129,11 +132,46 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="P7b-4u-jqL">
+                                <rect key="frame" x="171" y="321" width="33" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="popover.png" translatesAutoresizingMaskIntoConstraints="NO" id="SyU-bo-7fg">
+                                        <rect key="frame" x="0.0" y="0.0" width="33" height="24"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="boo-jD-Qge">
+                                        <rect key="frame" x="0.0" y="0.0" width="33" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xO9-R5-R9O">
+                                <rect key="frame" x="172" y="617" width="31" height="30"/>
+                                <state key="normal" title="Trim"/>
+                                <connections>
+                                    <action selector="onTrim:" destination="APu-sX-B1U" eventType="touchUpInside" id="fNQ-ON-0rT"/>
+                                </connections>
+                            </button>
+                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f99-R7-aQk" customClass="SFPositionFlagView" customModule="SFMixer" customModuleProvider="target">
+                                <rect key="frame" x="236" y="612" width="30" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" red="0.74117647060000003" green="0.031372549020000001" blue="0.10980392160000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="M8Q-N4-r6S" appends="YES" id="gzZ-by-qRv"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="0DT-BN-wg7" secondAttribute="trailing" constant="4" id="1t2-gp-nQN"/>
-                            <constraint firstItem="Cx2-li-UEm" firstAttribute="top" secondItem="phi-sk-r1h" secondAttribute="bottom" constant="60" id="A8w-pW-RSC"/>
+                            <constraint firstItem="xO9-R5-R9O" firstAttribute="top" secondItem="phi-sk-r1h" secondAttribute="bottom" constant="22" id="8hr-2p-U15"/>
                             <constraint firstItem="bRN-xj-8KF" firstAttribute="top" secondItem="e6M-oc-W4y" secondAttribute="bottom" constant="15" id="BV6-ot-Kt7"/>
                             <constraint firstItem="9T1-Nx-c5l" firstAttribute="leading" secondItem="phi-sk-r1h" secondAttribute="leading" id="BxS-e6-bfd"/>
                             <constraint firstItem="hzy-mQ-fdx" firstAttribute="centerX" secondItem="oTO-Zx-9KM" secondAttribute="centerX" id="DZk-ES-GRi"/>
@@ -141,11 +179,13 @@
                             <constraint firstItem="S5u-N7-S4K" firstAttribute="trailing" secondItem="phi-sk-r1h" secondAttribute="trailing" id="NNA-pA-0TZ"/>
                             <constraint firstItem="hzy-mQ-fdx" firstAttribute="centerY" secondItem="0DT-BN-wg7" secondAttribute="centerY" id="OLj-3j-khW"/>
                             <constraint firstItem="phi-sk-r1h" firstAttribute="leading" secondItem="oTO-Zx-9KM" secondAttribute="leadingMargin" constant="13" id="WXy-5S-B68"/>
+                            <constraint firstItem="Cx2-li-UEm" firstAttribute="top" secondItem="xO9-R5-R9O" secondAttribute="bottom" constant="20" id="WoO-lR-NdT"/>
                             <constraint firstItem="S5u-N7-S4K" firstAttribute="top" secondItem="phi-sk-r1h" secondAttribute="bottom" id="abO-sM-FQz"/>
                             <constraint firstAttribute="trailingMargin" secondItem="phi-sk-r1h" secondAttribute="trailing" constant="13" id="d39-SF-lhD"/>
                             <constraint firstItem="0DT-BN-wg7" firstAttribute="centerY" secondItem="bRN-xj-8KF" secondAttribute="centerY" id="kNE-VF-D6H"/>
                             <constraint firstAttribute="leadingMargin" secondItem="bRN-xj-8KF" secondAttribute="leading" id="n7I-lW-UJs"/>
                             <constraint firstItem="9T1-Nx-c5l" firstAttribute="top" secondItem="phi-sk-r1h" secondAttribute="bottom" id="rbf-2C-aoj"/>
+                            <constraint firstItem="xO9-R5-R9O" firstAttribute="centerX" secondItem="phi-sk-r1h" secondAttribute="centerX" id="ymm-WG-Rio"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Audio Mixer" id="qe0-5V-aRT">
@@ -154,7 +194,11 @@
                                 <action selector="dismissMixer:" destination="APu-sX-B1U" id="K28-Ef-NuW"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="action" id="Rng-ql-Lyr"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="action" id="Rng-ql-Lyr">
+                            <connections>
+                                <action selector="onExportResult:" destination="APu-sX-B1U" id="f5c-81-4xg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="actionBtn" destination="Rng-ql-Lyr" id="P2D-sW-u9u"/>
@@ -164,10 +208,13 @@
                         <outlet property="leftClipIndicator" destination="dYf-XS-YBt" id="34A-Iu-qoo"/>
                         <outlet property="leftPositionFlagLeftMarginConstraint" destination="BxS-e6-bfd" id="3sB-By-vrR"/>
                         <outlet property="leftPositionFlagView" destination="9T1-Nx-c5l" id="fq3-Z7-cx2"/>
+                        <outlet property="midClipIndicator" destination="P7b-4u-jqL" id="mO8-dk-xDU"/>
+                        <outlet property="midPositionFlagView" destination="f99-R7-aQk" id="obn-Hi-5Ws"/>
                         <outlet property="previewBtn" destination="0DT-BN-wg7" id="pNH-y3-J4U"/>
                         <outlet property="rightClipIndicator" destination="dUK-gn-bWl" id="15h-IE-b25"/>
                         <outlet property="rightPositionFlagView" destination="S5u-N7-S4K" id="u4h-jL-oUs"/>
                         <outlet property="rightPostionFlagRightMarginConstraint" destination="NNA-pA-0TZ" id="MQ9-gl-tGQ"/>
+                        <outlet property="trimBtn" destination="xO9-R5-R9O" id="zig-qW-EJd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yn3-V9-rce" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -181,6 +228,11 @@
                         <action selector="onRightPositionFlagViewPan:" destination="APu-sX-B1U" id="yDK-1E-oM7"/>
                     </connections>
                 </panGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="M8Q-N4-r6S">
+                    <connections>
+                        <action selector="onMidPosistionFlagViewPan:" destination="APu-sX-B1U" id="LxS-1s-41j"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="484" y="-500.59970014992507"/>
         </scene>
@@ -189,5 +241,6 @@
         <image name="playBtn.png" width="50" height="50"/>
         <image name="plus.png" width="36" height="36"/>
         <image name="popover.png" width="33" height="24"/>
+        <image name="stopBtn.png" width="52" height="52"/>
     </resources>
 </document>

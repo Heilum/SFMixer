@@ -6,17 +6,22 @@
 //  Copyright © 2017 SwordFish. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct SFAudioBus:Equatable {
     var url:URL
     var name:String;
-    var startPosition:TimeInterval;
-    var durationForDisplay:String;
-    var accerateDuration:TimeInterval;
-    var volumn:Float;
-    var mute:Bool;
+    var delayTime=TimeInterval(0)
+    var accurateDuration = TimeInterval(0);
+    var volumn = Float(1);
+    var mute = false;
     
+    var waveformImage:UIImage?
+    
+    init(url:URL,name:String) {
+        self.url = url;
+        self.name = name;
+    }
  
 }
 
