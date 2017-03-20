@@ -1,4 +1,4 @@
-#SFMixer
+## SFMixer
 
 
 This project illustrates how to use AVFoundation to build a simple audio mixer.
