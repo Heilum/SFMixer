@@ -14,7 +14,9 @@ This project illustrates how to use AVFoundation to build a simple audio mixer.
 * Panning an audio bus horizentally to position it;
 * Taping an audio bus to disable/enable it;
 * You can clip the final mixed audio by draging the starting/ending line;
-* Using AVAudioMix to preview the final audio and Using AVAssetExportSession to export it
+* Using AVAudioMix to preview the final audio and Using AVAssetExportSession to export it;
+* Tapping the "Trim" button to trim the final audio automatically;
+* Please use a real device to test the exporting feature.
 
 
 ## License
