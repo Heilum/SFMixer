@@ -265,7 +265,6 @@ class SFAudioBusContainerView: UIView {
         }
         get{
             let p = self.clipMaskLayer.clipMargins;
-            print(p);
             return p;
         }
     }
